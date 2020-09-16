@@ -9,12 +9,12 @@
       crossorigin="anonymous"
     />
     <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="./assets/style.css">
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
 
   <body>
@@ -30,12 +30,10 @@
               type="text"
               id="currentCity"
               placeholder="Search for a City"
-            /><button id="submit-btn"><i class="fas fa-search"></i></button>
+            /><button id="submit-btn" class="btn btn-primary"><i class="fas fa-search"></i></button>
           </form>
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action" data-toggle="list"
-              >searched city generated here</a
-            >
+          <div class="searchedCityList">
+           
           </div>
         </div>
         <div class="col-sm-8 mainCity">
@@ -52,10 +50,7 @@
               <div class="tempF"></div>
             </div>
           </div>
-          <div class="forcastBox">
-
-            </div>
-          </div>
+          <div class="forcastBox"></div>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+  var savedCities = [];
   function weatherGenerate() {
     // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -10,8 +12,7 @@ $(document).ready(function () {
       currentCity +
       "&appid=" +
       APIKey;
-
-      var currentDate = moment().format("D MMMM YYYY");
+    var currentDate = moment().format("dddd, DD MMMM");
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -21,7 +22,11 @@ $(document).ready(function () {
       // We store all of the retrieved data inside of an object called "response"
       .then(function (response) {
         // Log the queryURL
+        savedCities.push(currentCity);
+        console.log(currentCity);
+        localStorage.setItem('Searched Cities', savedCities);
 
+        addCityButton()
         // Transfer content to HTML
         var tempF = (response.main.temp - 273.15) * 1.8 + 32;
 
@@ -34,7 +39,7 @@ $(document).ready(function () {
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-
+        
         var queryURL2 =
           "https://api.openweathermap.org/data/2.5/onecall?lat=" +
           lat +
@@ -46,8 +51,7 @@ $(document).ready(function () {
         $.ajax({
           url: queryURL2,
           method: "GET",
-        })
-        .then(function (response) {
+        }).then(function (response) {
           console.log(queryURL2);
           console.log(response);
           var currentUVI = $("<span>").text("UVI: ");
@@ -67,6 +71,7 @@ $(document).ready(function () {
         });
       });
   }
+
   //   create event listener for search button & call weatherGenerate function
   $("#submit-btn").on("click", function (event) {
     // If I didn't have these empty settings, they would just stack. Not sure why they would, but others wouldn't?
@@ -74,9 +79,14 @@ $(document).ready(function () {
     $(".date").empty();
     event.preventDefault();
     weatherGenerate();
-    console.log(currentCity);
-    var storedCities = $(this).attr("previousCities");
-    var userInputCity = $(this).attr().val();
-    localStorage.setItem(storedCities, userInputCity);
   });
+
+  function addCityButton() {
+    $(".searchedCityList").empty();
+
+    for (var i = 0; i < savedCities.length; i++) {
+      var newCity = $("<button>").text(savedCities[i]);
+      $(".searchedCityList").append(newCity);
+    }
+  }
 });
