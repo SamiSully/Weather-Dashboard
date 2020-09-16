@@ -76,5 +76,6 @@ $(document).ready(function () {
     event.preventDefault();
     userInput();
     console.log(currentCity);
+
   });
 });
