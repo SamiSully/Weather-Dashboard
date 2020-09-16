@@ -1,29 +1,44 @@
 .uv-green {
   color: white;
   background-color: green;
+  padding: 4px;
 }
 
 .uv-yellow {
   color: #000;
   background-color: yellow;
+  padding: 4px;
 }
 
 .uv-orange {
     color: white;
     background-color:orange;
+    padding: 4px;
 }
 
 .uv-red {
     color: white;
     background-color: red;
+    padding: 4px;
 }
 
 .uv-violet {
     color: white;
     background-color: purple;
+    padding: 4px;
 }
 
 h1 {
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.date {
+    text-align: right;
+    font-weight: bold;
 }
 
