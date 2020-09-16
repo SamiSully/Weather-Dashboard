@@ -1,6 +1,6 @@
 $(document).ready(function () {
-
   var savedCities = [];
+  var currentCity;
   function weatherGenerate() {
     // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -24,9 +24,9 @@ $(document).ready(function () {
         // Log the queryURL
         savedCities.push(currentCity);
         console.log(currentCity);
-        localStorage.setItem('Searched Cities', savedCities);
-// runs the function that adds the city button
-        addCityButton()
+        localStorage.setItem("Searched Cities", savedCities);
+        // runs the function that adds the city button
+        addCityButton();
         // Transfer content to HTML
         var tempF = (response.main.temp - 273.15) * 1.8 + 32;
 
@@ -36,9 +36,12 @@ $(document).ready(function () {
         $(".wind").text("Wind Speed: " + response.wind.speed);
         $(".humidity").text("Humidity: " + response.main.humidity);
         $(".tempF").text("Temperature: " + tempF.toFixed(2) + " F");
-// the latitude and longitude variables pulled from the first query URL
+        // the latitude and longitude variables pulled from the first query URL
         var lat = response.coord.lat;
         var lon = response.coord.lon;
+
+
+        
         // the query url to gether the info needed to generate the UV index
         var queryURL2 =
           "https://api.openweathermap.org/data/2.5/onecall?lat=" +
@@ -48,8 +51,7 @@ $(document).ready(function () {
           "&units=imperial&appid=" +
           APIKey;
 
-          
-// The data pull to calculate the UV index!
+        // The data pull to calculate the UV index!
         $.ajax({
           url: queryURL2,
           method: "GET",
@@ -71,30 +73,39 @@ $(document).ready(function () {
             currentUVINumber.addClass("uv-violet");
           }
         });
-        
       });
   }
 
   //  creates an event listener to generate the weather for the entered city
-  $("#submit-btn").on("click", function (event) {
+  $("#searchButton").on("click", function (event) {
     // If I didn't have these empty settings, they would just stack. Not sure why they would, but others wouldn't?
+   
     $(".uvi").empty();
     $(".date").empty();
+     selectedCity = $(".currentCity").val();
+     if (selectedCity !== "") {
     event.preventDefault();
     weatherGenerate();
+     }
   });
-// the event listener for the previous searched buttons
+  // the event listener for the previous searched buttons
   $(".searchedCityList").on("click", function (event) {
     event.preventDefault();
-    weatherGenerate(savedCities[i]);
-  })
-// Adds the buttons from local storage onto the page!
+    // weatherGenerate(savedCities[i]);
+    $(".uvi").empty();
+    $(".date").empty();
+    $("#currentCity").empty();
+    weatherGenerate();
+  });
+  // Adds the buttons from local storage onto the page!
   function addCityButton() {
-    $(".searchedCityList").empty();
-// The loop that will add a new button every time
-    for (var i = 0; i < savedCities.length; i++) {
-      var newCity = $("<button>").text(savedCities[i]);
-      $(".searchedCityList").prepend(newCity);
+    $(".list-group").empty();
+    // The loop that will add a new button every time
+      for (var i = 0; i < savedCities.length; i++) {
+        var newCity = $("<button>").text(savedCities[i]);
+        newCity.addClass("list-group-item");
+        $(".list-group").prepend(newCity);
+      
     }
   }
 });

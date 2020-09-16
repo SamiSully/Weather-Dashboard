@@ -42,7 +42,13 @@ h1 {
     font-weight: bold;
 }
 
-button {
+#searchButton {
     margin: 5px;
 }
 
+.buttonList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
