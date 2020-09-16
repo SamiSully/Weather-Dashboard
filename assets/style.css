@@ -1,0 +1,29 @@
+.uv-green {
+  color: white;
+  background-color: green;
+}
+
+.uv-yellow {
+  color: #000;
+  background-color: yellow;
+}
+
+.uv-orange {
+    color: white;
+    background-color:orange;
+}
+
+.uv-red {
+    color: white;
+    background-color: red;
+}
+
+.uv-violet {
+    color: white;
+    background-color: purple;
+}
+
+h1 {
+    color: white;
+}
+

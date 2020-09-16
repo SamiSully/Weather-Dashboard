@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather Data</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./assets/style.css">
+  </head>
+
+  <body>
+    <!-- Just an image -->
+    <nav class="navbar navbar-dark bg-dark">
+      <h1>Weather Dashboard</h1>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <form>
+            <input
+              type="text"
+              id="currentCity"
+              placeholder="Search for a City"
+            /><button id="submit-btn"><i class="fas fa-search"></i></button>
+          </form>
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action" data-toggle="list"
+              >searched city generated here</a
+            >
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="city"></div>
+              <div class="temp"></div>
+              <div class="wind"></div>
+              <div class="humidity"></div>
+              <div class="uvi"></div>
+
+              <!-- Add extra div for the bonus Fahrenheit temp -->
+              <div class="tempF"></div>
+            </div>
+          </div>
+          <div class="forcastBox">
+            <h1>5-Day Forcast:</h1>
+                <!--5 day forecast columns go here-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Retrieved data will be dumped here -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/script.js"></script>
+  </body>
+</html>
