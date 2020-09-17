@@ -1,6 +1,6 @@
 # Weather-Dashboard
 
-![Image of Screenshot](weatherdashboarddemo.png);
+![Image of Screenshot](assets/WeatherDashboardDemo.png);
 
 ## Demo
 (https://samisully.github.io/Weather-Dashboard/)
