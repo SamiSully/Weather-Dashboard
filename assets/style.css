@@ -11,44 +11,60 @@
 }
 
 .uv-orange {
-    color: white;
-    background-color:orange;
-    padding: 4px;
+  color: white;
+  background-color: orange;
+  padding: 4px;
 }
 
 .uv-red {
-    color: white;
-    background-color: red;
-    padding: 4px;
+  color: white;
+  background-color: red;
+  padding: 4px;
 }
 
 .uv-violet {
-    color: white;
-    background-color: purple;
-    padding: 4px;
+  color: white;
+  background-color: purple;
+  padding: 4px;
 }
 
 h1 {
-    color: white;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h4 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .navbar {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .date {
-    text-align: right;
-    font-weight: bold;
+  text-align: right;
+  font-weight: bold;
 }
 
 #searchButton {
-    margin: 5px;
+  margin: 5px;
 }
 
 .buttonList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.oneDayForcast {
+  color: white;
+  background-color: rgb(128, 144, 211);
+  border-radius: 10px;
+  margin: 2px;
+  padding: 5px;
+}

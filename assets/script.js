@@ -27,13 +27,14 @@ $(document).ready(function () {
         addCityButton();
         // This converts thr weather to F
         var tempF = (response.main.temp - 273.15) * 1.8 + 32;
+        fixedTempF = Math.floor(tempF);
 
         // the variables that display on the page!
         $(".city").html("<h2>" + response.name + " Weather Details</h2>");
         $(".date").append(currentDate);
         $(".wind").text("Wind Speed: " + response.wind.speed);
         $(".humidity").text("Humidity: " + response.main.humidity);
-        $(".tempF").text("Temperature: " + tempF.toFixed(2) + " F");
+        $(".tempF").text("Temperature: " + fixedTempF + " F");
         // the latitude and longitude variables pulled from the first query URL
         var lat = response.coord.lat;
         var lon = response.coord.lon;
@@ -74,9 +75,9 @@ $(document).ready(function () {
             // pulls the data for weather using i for each day to pull the correct info
             var weather = response.daily[i].weather[0].main;
             // pulls the data for the temp using i for each day to pull the correct info
-            var temp = response.daily[i].temp.day
+            var temperature = response.daily[i].temp.day
             // converts the temp to F
-            F = (temp - 273.15) * 1.80 + 32;
+            F = temperature;
             F = Math.floor(F);
             // gets the humidity for each day using i
             var humidity = response.daily[i].humidity
@@ -86,7 +87,7 @@ $(document).ready(function () {
             var tempInfo = $("<p>").text("temp: " + F + "F")
             var humidInfo =$("<p>").text("humidity: " + humidity)
             // adds all of the variables and combines it into one so it can be appended to the page
-            var fiveDayRow = $("<div>").attr("class", "sm-col-2 oneDayForecast").append(dateInfo, weatherInfo, tempInfo, humidInfo);
+            var fiveDayRow = $("<div>").attr("class", "sm-col-2 oneDayForcast").append(dateInfo, weatherInfo, tempInfo, humidInfo);
             // appends the variables to the page
             $(".forcastBox").append(fiveDayRow);
         }
